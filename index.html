@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kerala Lottery Result Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="head">
+      <h1>Kerala lottery result checker</h1>
+      <p>Enter your ticket and see whether it won in a recent draw.</p>
+    </header>
+
+    <section class="ticket" aria-labelledby="form-title">
+      <form id="check-form" class="ticket-top" novalidate>
+        <h2 id="form-title" class="visually-hidden">Ticket details</h2>
+
+        <div class="field">
+          <label for="ticket">Ticket number</label>
+          <input id="ticket" name="ticket" type="text" class="ticket-input"
+                 placeholder="BT 886602" autocomplete="off" autocapitalize="characters"
+                 spellcheck="false" maxlength="10" required />
+          <p class="hint" id="ticket-hint">Two series letters and six digits.</p>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="draw-date">Draw date</label>
+            <input id="draw-date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="draw-number">Draw number <span class="optional">(optional)</span></label>
+            <input id="draw-number" name="draw" type="text" placeholder="e.g. BT-12"
+                   autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" />
+          </div>
+        </div>
+
+        <div id="date-chips" class="chips" aria-label="Dates with results available"></div>
+
+        <button type="submit" id="submit-btn" disabled>Check ticket</button>
+        <p id="load-status" class="status" role="status">Loading latest results…</p>
+      </form>
+
+      <div class="perforation" aria-hidden="true"></div>
+
+      <div class="ticket-stub" id="result" aria-live="polite" tabindex="-1">
+        <p class="empty">Your result will appear here.</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>
+        Unofficial tool. Results come from a community-maintained
+        <a href="https://github.com/Babuperumana/kerala-lottery-api" target="_blank" rel="noopener">public JSON feed</a>
+        that keeps the last 7 days only. Always confirm a win against the official result on
+        <a href="https://statelottery.kerala.gov.in" target="_blank" rel="noopener">statelottery.kerala.gov.in</a>
+        before claiming a prize.
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
